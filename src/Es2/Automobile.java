@@ -10,15 +10,17 @@ public class Automobile {
     }
 
     public double divisione() {
-        if (litri != 0) {
+        if (litri == 0) {
             throw new ArithmeticException("Non è possibile la divisione per 0");
         }
         return (double) distanza / litri;
     }
 
-    public void rapporto() throws RapportoException {
+    public void rapporto()  {
         try (Scanner myScanner = new Scanner(System.in)) {
+            System.out.println("Inserisci la distanza in km percorsa: ");
             distanza = myScanner.nextInt();
+            System.out.println("Inserisci il consume do benzina in litri: ");
             litri = myScanner.nextInt();
             double rapporto = divisione();
             System.out.println("Il rapporto è di "+  rapporto);
@@ -26,6 +28,4 @@ public class Automobile {
             System.err.println("Errore "+ e.getMessage());
         }
     }
-
-
 }
